@@ -4,64 +4,55 @@
   <title>TipoffTalk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont;
-      background: #0a0a0a;
-      color: white;
-    }
-    .header {
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .card {
-      margin: 16px;
-      padding: 16px;
-      background: #111;
-      border-radius: 12px;
-    }
-    .score {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-    .nav {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #111;
-      display: flex;
-      justify-content: space-around;
-      padding: 12px 0;
-    }
+    body { margin:0; font-family:-apple-system; background:#0a0a0a; color:white; }
+    .nav { position:fixed; bottom:0; width:100%; display:flex; justify-content:space-around; background:#111; padding:12px; }
+    .tab { display:none; padding:20px; }
+    .active { display:block; }
+    .card { background:#111; padding:16px; border-radius:12px; margin-bottom:12px; }
   </style>
 </head>
 
 <body>
 
-<div class="header">TipoffTalk 🏀</div>
-
-<div class="card">
-  <div>LIVE GAME</div>
-  <div class="score">Lakers 102 - 99 Warriors</div>
+<div id="home" class="tab active">
+  <h2>TipoffTalk 🏀</h2>
+  <div class="card">Welcome to the everything basketball app.</div>
 </div>
 
-<div class="card">
-  <div>🔥 RUMOR</div>
-  <div>League execs believe a major trade is coming before deadline</div>
+<div id="scores" class="tab">
+  <h2>Scores</h2>
+  <div class="card">Lakers 102 - 99 Warriors</div>
 </div>
 
-<div class="card">
-  <div>🧠 BLOG</div>
-  <div>The NBA lost its edge. Here’s why.</div>
+<div id="feed" class="tab">
+  <h2>Feed</h2>
+  <div class="card">Shai’s MVP case is undeniable.</div>
+</div>
+
+<div id="podcast" class="tab">
+  <h2>Podcast</h2>
+  <div class="card">Exclusive TipoffTalk episode.</div>
+</div>
+
+<div id="players" class="tab">
+  <h2>Savant</h2>
+  <div class="card">Player ratings coming soon.</div>
 </div>
 
 <div class="nav">
-  <div>Home</div>
-  <div>Scores</div>
-  <div>Feed</div>
-  <div>Profile</div>
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('scores')">Scores</button>
+  <button onclick="show('feed')">Feed</button>
+  <button onclick="show('podcast')">Podcast</button>
+  <button onclick="show('players')">Savant</button>
 </div>
+
+<script>
+function show(tab){
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+}
+</script>
 
 </body>
 </html>
